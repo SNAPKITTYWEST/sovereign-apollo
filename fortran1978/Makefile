@@ -2,7 +2,7 @@
 # Period-appropriate style (gfortran modern compat) — see docs/fortran/15_BUILD_INSTRUCTIONS.md
 FC=gfortran
 FFLAGS=-std=legacy -O2 -Wall -fdec -ffixed-form
-SRC=m_state.f agc_const.f agc_memory.f agc_cpu.f agc_interp.f executive.f orbital.f propulsion.f control.f vehicle.f timeline.f telemetry.f comms.f engine.f replay.f fault.f verification.f dsky.f main.f
+SRC=m_state.f agc_const.f agc_memory.f agc_cpu.f agc_interp.f executive.f orbital.f kepler.f forest_ruth.f propulsion.f control.f vehicle.f timeline.f telemetry.f comms.f engine.f replay.f fault.f verification.f dsky.f main.f
 OBJ=$(SRC:.f=.o)
 
 all: sovapol
