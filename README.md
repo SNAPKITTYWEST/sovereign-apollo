@@ -321,6 +321,20 @@ The original AGC landed on the Moon with 4,096 words of RAM and no formal verifi
 
 ---
 
+## Three Repos — What Goes Where
+
+This reconstruction spans three repositories:
+
+| Repo | Role | What's Here |
+|---|---|---|
+| **sovereign-apollo** (this repo) | Fleet build — orchestration record | TypeScript baseline, FORTRAN 77 port (Meta), Fortran 2018 (Kimi), APL (Gemini), R orbital mechanics (Ahmad), full attribution, 22-event mission timeline |
+| **[sovereign-agc](https://github.com/SNAPKITTYWEST/sovereign-agc)** | Complete canonical implementation | All formal proofs closed, Ada SPARK, Idris 2 Parrgorithm, Lean 4 zero-sorry theorems, OpenQASM, R library with spherical harmonics |
+| **[sovereign-fortran-agc](https://github.com/SNAPKITTYWEST/sovereign-fortran-agc)** | Canonical source corpus | The original email chain: Fortran orbital mechanics, PTX kernels, no_std Rust CUDA driver, Forth executive — the material Ahmad audited and fixed |
+
+This repo tells the story of how it was built. `sovereign-agc` is the finished artifact. `sovereign-fortran-agc` is the raw source material.
+
+---
+
 ## License
 
 Tri-license model reflecting the three technical layers:
