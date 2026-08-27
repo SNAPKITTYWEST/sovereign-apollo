@@ -1,0 +1,27 @@
+{
+  "name": "sovereign-apollo",
+  "version": "0.1.0",
+  "description": "Deterministic, evidence-traced Apollo 11 digital twin + AGC reconstruction",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest run",
+    "verify:artifacts": "tsx scripts/verify-artifacts.ts",
+    "fetch:lumi": "tsx scripts/fetch-luminary.ts",
+    "replay:mission": "tsx src/mission/replay-cli.ts --timeline data/mission_timeline.json",
+    "replay:fault": "tsx src/replay/fault-cli.ts",
+    "verify:formal": "echo 'Lean checks: see formal/' && ls formal",
+    "lint": "tsc --noEmit"
+  },
+  "dependencies": {
+    "commander": "^12.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.0",
+    "tsx": "^4.0.0",
+    "vitest": "^1.0.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

@@ -1,0 +1,30 @@
+C     COMMS.F  — Comms state machine  (src/telemetry/comms.ts)
+      BLOCK DATA COMDTA
+      INTEGER ISTATE
+      REAL*8 SIGDB
+      COMMON /COMMS/ ISTATE(3), SIGDB(3)
+      DATA ISTATE/3*0/, SIGDB/3*-120.D0/
+      END
+      SUBROUTINE COMUPD(IIDX, SIG, IOST, IERR)
+      INTEGER IIDX, IOST, IERR, ISTATE
+      REAL*8 SIG, SIGDB
+      COMMON /COMMS/ ISTATE(3), SIGDB(3)
+      IERR=0
+      SIGDB(IIDX)=SIG
+      IOST = ISTATE(IIDX)
+      IF (ISTATE(IIDX).EQ.0) THEN
+         IF (SIG .GT. -90.D0) ISTATE(IIDX)=1
+      ELSE IF (ISTATE(IIDX).EQ.1) THEN
+         IF (SIG .GT. -85.D0) THEN
+            ISTATE(IIDX)=2
+         ELSE IF (SIG .LT. -100.D0) THEN
+            ISTATE(IIDX)=3
+         ENDIF
+      ELSE IF (ISTATE(IIDX).EQ.2) THEN
+         IF (SIG .LT. -100.D0) ISTATE(IIDX)=3
+      ELSE IF (ISTATE(IIDX).EQ.3) THEN
+         IF (SIG .GT. -90.D0) ISTATE(IIDX)=0
+      ENDIF
+      IOST=ISTATE(IIDX)
+      RETURN
+      END

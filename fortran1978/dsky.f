@@ -1,0 +1,34 @@
+C     DSKY.F  — Verb/Noun command input (src/agc/dsky.ts, presentation dropped)
+      BLOCK DATA DSKYDT
+      INTEGER IVERB, INOUN
+      CHARACTER*8 CPROG, CVERB, CNOUN, CR1, CR2, CR3
+      COMMON /DSKY/ IVERB, INOUN, CPROG, CVERB, CNOUN, CR1, CR2, CR3
+      DATA IVERB/0/, INOUN/0/, CPROG/'00'/, CVERB/'00'/, CNOUN/'00'/
+      DATA CR1/'+00000'/, CR2/'+00000'/, CR3/'+00000'/
+      END
+C     RDINPT — READ INPUT (replaces Dsky.key callback)
+      SUBROUTINE RDINPT(IVERB_OUT, INOUN_OUT, IERR)
+      INTEGER IVERB_OUT, INOUN_OUT, IERR, IVERB, INOUN
+      CHARACTER*8 CPROG, CVERB, CNOUN, CR1, CR2, CR3
+      COMMON /DSKY/ IVERB, INOUN, CPROG, CVERB, CNOUN, CR1, CR2, CR3
+      IERR=0
+C     Non-blocking: if no input, keep previous; FORTRAN batch reads from unit 5
+C     Caller can feed via echo "37 68" | ./sovapol
+      READ(5,*, ERR=90, END=90) IVERB, INOUN
+      IVERB_OUT=IVERB
+      INOUN_OUT=INOUN
+      RETURN
+ 90   IVERB_OUT=IVERB
+      INOUN_OUT=INOUN
+      IERR=1
+      RETURN
+      END
+      SUBROUTINE DSPV37(INOUN_NEW, CPROG_OUT)
+      INTEGER INOUN_NEW
+      CHARACTER*8 CPROG_OUT, CPROG, CVERB, CNOUN, CR1, CR2, CR3
+      INTEGER IVERB, INOUN
+      COMMON /DSKY/ IVERB, INOUN, CPROG, CVERB, CNOUN, CR1, CR2, CR3
+      WRITE(CPROG_OUT,'(I2.2)') INOUN_NEW
+      CPROG=CPROG_OUT
+      RETURN
+      END

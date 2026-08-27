@@ -1,0 +1,101 @@
+{
+  "registry_version": "1.0.0",
+  "created": "2026-08-26",
+  "principle": "Evidence first. Reconstruction second. Modernization third.",
+  "classification": ["DOCUMENTED", "RECONSTRUCTED", "INFERRED", "MODERN_DESIGN", "UNVERIFIED"],
+  "artifacts": [
+    {
+      "id": "LUM099-001",
+      "classification": "DOCUMENTED",
+      "title": "Luminary099 AGC Program Listing (LM) — MIT Museum Hardcopy 1969-07-14",
+      "source": "https://github.com/chrislgarry/Apollo-11/tree/master/Luminary099",
+      "provenance": "Transcribed from MIT Museum hardcopy by Ron Burkey; assembled via yaYUL; 1743 pages",
+      "files": 101,
+      "lines_approx": 40000,
+      "hash_method": "SHA-256 per file + git commit pin",
+      "git_pin": "master branch, chrislgarry/Apollo-11, commit verified via fetch script",
+      "preservation": "evidence/artifacts/Luminary099/ (verbatim, read-only)",
+      "verification": "scripts/verify-artifacts.ts checks SHA256 against registry",
+      "notes": "ASSEMBLED REVISION 001 OF AGC PROGRAM LMY99 BY NASA 2021112-061 16:27 JULY 14,1969. For LM during manned lunar landing."
+    },
+    {
+      "id": "AGC-DOC-001",
+      "classification": "DOCUMENTED",
+      "title": "Apollo Guidance Computer: Information for Block II",
+      "source": "MIT Instrumentation Lab Report R-393 (1963) + R-500 series",
+      "provenance": "NASA NTRS; Virtual AGC Project scans",
+      "covers": ["Instruction architecture", "Memory (erasable/fixed)", "Timing", "I/O channels"],
+      "status": "catalogued, extract pending"
+    },
+    {
+      "id": "AGC-DOC-002",
+      "classification": "DOCUMENTED",
+      "title": "AGC Assembly & Operation Information (Luminary099 ASSEMBLY_AND_OPERATION_INFORMATION.agc)",
+      "source": "Luminary099/ASSEMBLY_AND_OPERATION_INFORMATION.agc pp.1-27",
+      "extracted": ["TABLE OF SUBROUTINE LOG SECTIONS", "bank organization", "yaYUL assembly model (monolithic)"],
+      "status": "extracted"
+    },
+    {
+      "id": "SATURNV-001",
+      "classification": "DOCUMENTED",
+      "title": "Saturn V Flight Manual SA-507 (Apollo 11) — MSFC-MAN-507",
+      "source": "NASA TM X-... / NTRS; Saturn V News Reference (1968)",
+      "covers": ["S-IC", "S-II", "S-IVB", "Instrument Unit", "performance tables"],
+      "status": "catalogued"
+    },
+    {
+      "id": "CSM-LM-001",
+      "classification": "DOCUMENTED",
+      "title": "Apollo Operations Handbook CSM/LM (AOH)",
+      "source": "NASA CSM104/LM-5 docs, NTRS",
+      "covers": ["Command Module", "Service Module", "Lunar Module subsystems"],
+      "status": "catalogued"
+    },
+    {
+      "id": "TIMELINE-001",
+      "classification": "RECONSTRUCTED",
+      "title": "Apollo 11 Mission Timeline Reconstruction (MET-indexed)",
+      "source": "Derived from NASA Mission Report, Flight Plan, PAO commentary",
+      "derived_from": ["NASA SP-238 Apollo 11 Preliminary Science Report", "Apollo 11 Flight Plan AS-506/CSM107/LM5"],
+      "method": "Normalize MET, vehicle state, guidance mode, propulsion, comms, telemetry, crew, ground",
+      "artifact": "data/mission_timeline.json",
+      "status": "generated"
+    },
+    {
+      "id": "GUIDANCE-001",
+      "classification": "DOCUMENTED",
+      "title": "Lunar Landing Guidance Equations (Luminary099/LUNAR_LANDING_GUIDANCE_EQUATIONS.agc)",
+      "source": "Luminary099 pp.798-828",
+      "covers": ["P63-P68 guidance laws, throttle control, Servicer"],
+      "status": "extracted"
+    },
+    {
+      "id": "TELEM-001",
+      "classification": "DOCUMENTED",
+      "title": "Downlink Lists & Down Telemetry Program",
+      "source": "Luminary099/DOWNLINK_LISTS.agc pp.193-205 + DOWN_TELEMETRY_PROGRAM.agc pp.988-997",
+      "covers": ["Downlink formats, word assignments, telemetry scheduling"],
+      "status": "extracted"
+    },
+    {
+      "id": "COMM-001",
+      "classification": "DOCUMENTED",
+      "title": "S-Band, VHF, MSFN Ground Stations",
+      "source": "Apollo Communications Systems, MSFN docs, S-BAND_ANTENNA_FOR_LM.agc pp.486-489",
+      "status": "catalogued"
+    },
+    {
+      "id": "PHYSICS-001",
+      "classification": "MODERN_DESIGN",
+      "title": "Sovereign Physics Engine (deterministic N-body + thrust)",
+      "source": "Modern reimplementation preserving Apollo engineering principles",
+      "method": "Kepler + patched conic with documented Saturn V ΔV tables; NOT claiming flight-qualified fidelity",
+      "status": "implemented src/physics/"
+    }
+  ],
+  "evidence_standard": {
+    "workflow": "SOURCE → EXTRACT → NORMALIZE → MODEL → IMPLEMENT → TEST → FORMALIZE → REPLAY → COMPARE",
+    "rule": "Every claim tagged; inferences never promoted to DOCUMENTED; original artifacts hash-verified",
+    "verification": "SHA-256 per artifact file; reproducible build via Nix/frozen lockfile; deterministic replay hash"
+  }
+}

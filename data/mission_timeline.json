@@ -1,0 +1,33 @@
+{
+  "mission": "Apollo 11",
+  "spacecraft": { "csm": "CSM-107 Columbia", "lm": "LM-5 Eagle", "launch_vehicle": "SA-507" },
+  "agc_program": "Luminary099 (LM) Rev 001 1969-07-14",
+  "classification": "RECONSTRUCTED from NASA Mission Report, Flight Plan, PAO transcripts",
+  "evidence_id": "TIMELINE-001",
+  "timezone": "UTC 1969-07-16..24",
+  "events": [
+    { "seq": 1, "met": "000:00:00", "utc": "1969-07-16T13:32:00Z", "phase": "LAUNCH", "event": "Liftoff S-IC ignition", "vehicle_state": "stack_thrusting", "guidance_mode": "IU", "propulsion": "5xF-1 7.5Mlbf", "comms": "MSFN", "crew_proc": "—" },
+    { "seq": 2, "met": "000:02:42", "utc": "1969-07-16T13:34:42Z", "phase": "STAGING", "event": "S-IC/S-II separation", "vehicle_state": "S-II thrusting 68km", "guidance_mode": "IU", "propulsion": "5xJ-2", "comms": "MSFN", "crew_proc": "—" },
+    { "seq": 3, "met": "000:09:00", "utc": "1969-07-16T13:41:00Z", "phase": "EARTH_ORBIT", "event": "S-IVB orbital insertion 185km circular", "vehicle_state": "LEO 185km", "guidance_mode": "IU → PGNCS", "propulsion": "S-IVB cutoff", "comms": "MSFN Bermuda", "crew_proc": "Orbit checklist" },
+    { "seq": 4, "met": "002:44:16", "utc": "1969-07-16T16:16:16Z", "phase": "TLI", "event": "Translunar Injection (S-IVB restart, ΔV 3.05km/s)", "vehicle_state": "TLI", "guidance_mode": "IU", "propulsion": "1xJ-2 350s", "comms": "MSFN", "crew_proc": "P15? — IU sequence" },
+    { "seq": 5, "met": "003:15:00", "utc": "1969-07-16T16:47:00Z", "phase": "COAST", "event": "CSM/S-IVB separation, transposition & docking", "vehicle_state": "coast", "guidance_mode": "PGNCS P30", "propulsion": "RCS", "comms": "MSFN", "crew_proc": "Transposition" },
+    { "seq": 6, "met": "075:49:50", "utc": "1969-07-19T17:21:50Z", "phase": "LUNAR_ORBIT", "event": "LOI-1 (SPS, behind Moon)", "vehicle_state": "111x312km lunar", "guidance_mode": "PGNCS P40", "propulsion": "SPS 357s", "comms": "LOS 10min", "crew_proc": "P40" },
+    { "seq": 7, "met": "080:11:36", "utc": "1969-07-19T21:43:36Z", "phase": "LUNAR_ORBIT", "event": "LOI-2 circularization 111x122km", "vehicle_state": "circular 111km", "guidance_mode": "PGNCS P40", "propulsion": "SPS 17s", "comms": "MSFN", "crew_proc": "P30" },
+    { "seq": 8, "met": "100:12:00", "utc": "1969-07-20T13:44:00Z", "phase": "UNDOCK", "event": "CSM/LM undock, DOI preparation", "vehicle_state": "LM separate", "guidance_mode": "LGC P47", "propulsion": "RCS", "comms": "MSFN + VHF", "crew_proc": "Undock, visual inspect" },
+    { "seq": 9, "met": "101:36:14", "utc": "1969-07-20T15:08:14Z", "phase": "DESCENT_PREP", "event": "DOI burn (DPS, ΔV 20m/s)", "vehicle_state": "15x111km", "guidance_mode": "LGC P40", "propulsion": "DPS", "comms": "MSFN", "crew_proc": "P63 ready" },
+    { "seq": 10, "met": "102:33:05", "utc": "1969-07-20T20:05:05Z", "phase": "PDI", "event": "Powered Descent Initiation (DPS ignition, P63)", "vehicle_state": "15km alt", "guidance_mode": "P63 Braking", "propulsion": "DPS 94% + RCS", "comms": "MSFN Goldstone+Honeysuckle", "crew_proc": "P63 auto" },
+    { "seq": 11, "met": "102:38:22", "utc": "1969-07-20T20:10:22Z", "phase": "PDI", "event": "1202 Executive Overflow alarm (RR CDU flood) — restart, phase resume", "vehicle_state": "PDI", "guidance_mode": "P63 → restart → P63", "propulsion": "DPS", "comms": "MSFN", "crew_proc": "GNC: '1202' — GO", "fault_state": "EXECUTIVE_OVERFLOW" },
+    { "seq": 12, "met": "102:39:00", "utc": "1969-07-20T20:11:00Z", "phase": "PDI", "event": "1201 alarm (second overflow)", "vehicle_state": "PDI", "guidance_mode": "P63", "propulsion": "DPS", "comms": "MSFN", "crew_proc": "GO" },
+    { "seq": 13, "met": "102:42:00", "utc": "1969-07-20T20:14:00Z", "phase": "APPROACH", "event": "P64 Approach Phase (pitch to landing site, throttle variable)", "vehicle_state": "2km alt", "guidance_mode": "P64", "propulsion": "DPS variable", "comms": "MSFN", "crew_proc": "N69 redesignate window" },
+    { "seq": 14, "met": "102:44:00", "utc": "1969-07-20T20:16:00Z", "phase": "LANDING", "event": "P66 ROD/manual take-over, Armstrong maneuvers", "vehicle_state": "150m alt", "guidance_mode": "P66", "propulsion": "DPS", "comms": "MSFN", "crew_proc": "Manual stick" },
+    { "seq": 15, "met": "102:45:03", "utc": "1969-07-20T20:17:40Z", "phase": "LANDED", "event": "Contact Light, 'The Eagle has landed' — Tranquility Base", "vehicle_state": "surface lat 0.674°N 23.473°E", "guidance_mode": "P68", "propulsion": "DPS cutoff", "comms": "MSFN", "crew_proc": "P68 landing confirmation" },
+    { "seq": 16, "met": "109:07:33", "utc": "1969-07-21T02:39:33Z", "phase": "EVA", "event": "Armstrong steps onto surface, 'one small step'", "vehicle_state": "surface EVA", "guidance_mode": "PGNCS standby", "propulsion": "—", "comms": "S-band + TV", "crew_proc": "EVA" },
+    { "seq": 17, "met": "124:22:00", "utc": "1969-07-21T17:54:00Z", "phase": "ASCENT", "event": "Liftoff — APS ignition P12", "vehicle_state": "ascent 0→60km", "guidance_mode": "P12 Ascent Guidance", "propulsion": "APS 3500lbf", "comms": "VHF→S-band", "crew_proc": "P12 auto" },
+    { "seq": 18, "met": "124:30:00", "utc": "1969-07-21T18:02:00Z", "phase": "INSERTION", "event": "Lunar orbit insertion 15×85km", "vehicle_state": "orbit", "guidance_mode": "P70", "propulsion": "APS cutoff", "comms": "MSFN", "crew_proc": "P30" },
+    { "seq": 19, "met": "127:15:00", "utc": "1969-07-21T20:47:00Z", "phase": "RENDEZVOUS", "event": "CSI/CDH burns (P30 Lambert) — RECONSTRUCTED 127:15", "vehicle_state": "phasing", "guidance_mode": "P32 Lambert", "propulsion": "RCS", "comms": "VHF", "crew_proc": "Rendezvous nav P20 marks" },
+    { "seq": 20, "met": "128:03:00", "utc": "1969-07-21T21:35:00Z", "phase": "DOCKING", "event": "Docking with Columbia (CSM)", "vehicle_state": "docked", "guidance_mode": "DAP", "propulsion": "RCS", "comms": "VHF", "crew_proc": "Hard dock" },
+    { "seq": 21, "met": "135:23:00", "utc": "1969-07-22T04:55:00Z", "phase": "TEI", "event": "Trans-Earth Injection (SPS, ΔV 1.0km/s)", "vehicle_state": "TEI", "guidance_mode": "P40", "propulsion": "SPS", "comms": "MSFN", "crew_proc": "P40" },
+    { "seq": 22, "met": "195:18:35", "utc": "1969-07-24T16:50:35Z", "phase": "REENTRY", "event": "Splashdown Pacific (13°30′N 169°15′W)", "vehicle_state": "CM parachutes", "guidance_mode": "—", "propulsion": "RCS CM", "comms": "Recovery UHF", "crew_proc": "—" }
+  ],
+  "notes": "MET durations normalized to 000:00:00 liftoff. Times rounded to nearest second; LOS periods marked. For deterministic replay, MET is canonical (not UTC). Guidance mode per Luminary099 Pxx mapping."
+}

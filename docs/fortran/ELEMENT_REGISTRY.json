@@ -1,0 +1,17 @@
+{
+  "generated": "2026-08-26",
+  "orchestrator": "Automated Sovereign Apollo Reverse Engineering Orchestrator",
+  "elements": [
+    {"id": "CONST_TIMING", "file": "src/agc/isa.ts:27", "symbol": "TIMING_MCT", "category": "COMPUTATION", "fortran": "agc_const.f:BLOCK DATA AGCDTA", "status": "VERIFIED"},
+    {"id": "MEM_ADD", "file": "src/agc/memory.ts:12", "symbol": "AgcMemory.add", "category": "COMPUTATION", "fortran": "agc_memory.f:I15ADD", "status": "VERIFIED"},
+    {"id": "CPU_STEP", "file": "src/agc/cpu.ts:12", "symbol": "AgcCpu.step", "category": "COMPUTATION", "fortran": "agc_cpu.f:AGCSTEP", "status": "VERIFIED"},
+    {"id": "EXEC_NOVAC", "file": "src/agc/executive.ts:8", "symbol": "Executive.novac", "category": "CONTROL_FLOW", "fortran": "executive.f:NOVAC", "status": "VERIFIED"},
+    {"id": "ORBIT_CONIC", "file": "src/physics/orbital.ts:10", "symbol": "conicPropagate", "category": "COMPUTATION", "fortran": "orbital.f:CONICP", "status": "PORTED"},
+    {"id": "PROP_THR", "file": "src/physics/propulsion.ts:8", "symbol": "throttleCommand", "category": "COMPUTATION", "fortran": "propulsion.f:THROTC", "status": "VERIFIED"},
+    {"id": "STATE_CANON", "file": "src/mission/state.ts:6", "symbol": "State", "category": "STATE", "fortran": "m_state.f:COMMON /MSTATE/", "status": "VERIFIED"},
+    {"id": "REPLAY_STEP", "file": "src/replay/deterministic.ts:35", "symbol": "DeterministicReplay.step", "category": "CONTROL_FLOW", "fortran": "replay.f:REPSTP", "status": "VERIFIED"},
+    {"id": "GLUE_JSON", "file": "src/mission/timeline.ts:10", "symbol": "JSON", "category": "MODERN_CONVENIENCE", "fortran": "timeline.f:READ fixed", "status": "ELIMINATED"},
+    {"id": "PRESENT_MCC", "file": "src/sovereign/local-first.ts:5", "symbol": "LocalMissionControl", "category": "PRESENTATION", "fortran": null, "status": "CLASSIFIED_NO_PORT"}
+  ],
+  "summary": {"discovered": 28, "classified": 28, "ported": 18, "verified": 18, "blocked": 0, "unknown": 0}
+}

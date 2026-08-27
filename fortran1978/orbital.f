@@ -1,0 +1,46 @@
+C     ORBITAL.F  — Conic + Encke  (src/physics/orbital.ts)
+C     CONICP — stub preserving TS: r' = r + v*dt
+      SUBROUTINE CONICP(R,V,DT,XMU,ROUT,VOUT)
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+      REAL*8 R(3), V(3), ROUT(3), VOUT(3), DT, XMU
+      ROUT(1)=R(1)+V(1)*DT
+      ROUT(2)=R(2)+V(2)*DT
+      ROUT(3)=R(3)+V(3)*DT
+      VOUT(1)=V(1); VOUT(2)=V(2); VOUT(3)=V(3)
+      RETURN
+      END
+C     ENCKE step: conic + perturb
+      SUBROUTINE ENCKE(R,V,DT,PX,PY,PZ,ROUT,VOUT)
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+      REAL*8 R(3),V(3),ROUT(3),VOUT(3),DT,PX,PY,PZ, RMAG, XMU
+      REAL*8 RTMP(3), VTMP(3), XMU_MOON, XMU_EART
+      PARAMETER (XMU_MOON=4.9028D12, XMU_EART=3.986004418D14)
+      RMAG = DSQRT(R(1)**2+R(2)**2+R(3)**2)
+      IF (RMAG .LT. 5.D6) THEN
+         XMU = XMU_MOON
+      ELSE
+         XMU = XMU_EART
+      ENDIF
+      CALL CONICP(R,V,DT,XMU,RTMP,VTMP)
+      ROUT(1)=RTMP(1)+0.5D0*PX*DT*DT
+      ROUT(2)=RTMP(2)+0.5D0*PY*DT*DT
+      ROUT(3)=RTMP(3)+0.5D0*PZ*DT*DT
+      VOUT(1)=VTMP(1)+PX*DT
+      VOUT(2)=VTMP(2)+PY*DT
+      VOUT(3)=VTMP(3)+PZ*DT
+      RETURN
+      END
+      REAL*8 FUNCTION ALTIT(R,IBODY)
+      IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+      REAL*8 R(3), RMAG
+      INTEGER IBODY
+      REAL*8 RMOON, REARTH
+      PARAMETER (RMOON=1737400.D0, REARTH=6371000.D0)
+      RMAG=DSQRT(R(1)**2+R(2)**2+R(3)**2)
+      IF (IBODY.EQ.0) THEN
+         ALTIT=RMAG-RMOON
+      ELSE
+         ALTIT=RMAG-REARTH
+      ENDIF
+      RETURN
+      END
